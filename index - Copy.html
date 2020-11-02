@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function validateForm() 
+{
+  var x = document.forms["myForm"]["fname"].value;//var a=document.myform.fname.value;
+  if (x == "") {
+    alert("Name must be filled out.");
+    return false;
+  }
+
+  if(x.length!=10)
+  {
+  	alert("name should be 10 letters");
+  	return false;
+  }
+
+  var b = document.getElementById('mynum').value;
+  if(b=="")
+  {
+  	alert("mobile no must be filled out");
+    return false;	
+  }
+
+  if(isNaN(b))
+  	{
+  		alert("please enter only numbers");
+  		return false;
+  	}
+
+  if(b.length!=10)
+  {
+  	alert("enter only 10 digit");
+  	return false;
+  }
+
+  var c= document.getElementById("mymail").value;
+  if (c=="")
+  {
+  	alert("Emaild must be filled out");
+  	return false;
+  }
+
+  if (c.indexOf("@")<1) 
+  {
+    alert("invalid @");
+    return false;
+  }
+  if (((c.charAt(c.length-3)!=".") || (c.charAt(c.length-6)!=".")) && ((c.charAt(c.length-4)!=".")) )
+  {
+  	alert("invalid .");
+  	return false;
+  }
+
+  var d=document.getElementById("mypwd").value;
+  if (d=="") {
+  	alert("Password must be filled out");
+  	return false;
+  }
+
+  if (d.length<8) 
+  {
+  	alert("Password length should be 8 ")
+  }
+
+  if (d.search(/[A-Z]/)<1)
+  {
+  	alert("uppercase letter should be required atleast 1");
+  	return false;
+  }
+  if (d.search(/[0-9]/)<1) 
+  {
+  	alert("Should be atleast one integer");
+  	return false;
+  }
+
+  if (d.search(/[!,@,#,$,&]/)<1)
+   {
+   	alert("should be atleast spl character");
+   	return false;
+  }
+
+  var e=document.getElementById("myconfpwd").value;
+  if (e=="") 
+  {
+  	alert("please re-enter the Password");
+  	return false;
+  }
+
+  if (d!=e)
+  {
+  	alert("please enter the correct Password");
+  	return false;
+  } 
+
+  var f=document.getElementById("myintrest").value;
+   if (f=="") 
+   {
+   	alert("please select any one option");
+   	return false;
+   }
+
+   var g=document.getElementById("mygender").checked;
+   var h=document.getElementById("mygender1").checked;
+   var i=document.getElementById("mygender2").checked;
+   if ((g=="") && (h=="") && (i=="")) 
+   {
+   		alert("Please select any one of them");
+		return false;
+   }
+
+   var j=document.getElementById("myrelocate").checked;
+   var k=document.getElementById("myrelocate1").checked;
+   if ((j=="") && (k=="")) 
+   {
+   	alert("please choose the option");
+   	return false;
+   }
+
+   var l=document.getElementsByName("check").checked;
+   var m=document.getElementsByName("check").checked;
+   if ((l=="") && (m=="")) 
+   {
+   	alert("please choose the option");
+   	return false;
+   }
+
+}
+</script>
+</head>
+<body>
+
+<form name="myForm" action="" onsubmit="return validateForm()" method="get">
+ Name: <input type="text" name="fname"><br><br>
+  Mobile No:<input type="text" name="mb" id="mynum"><br><br>
+  Email Id: <input type="text" name="emailname" id="mymail"><br><br>
+  Password: <input type="text" name="Password" id="mypwd"><br><br>
+  Confirm Password: <input type="text" name="Password" id="myconfpwd"><br><br>
+  Intrest In: <select style="width: 100px;" id="myintrest">
+
+  		<option> </option>
+  		<option value="web Dev2"> Web Dev2</option>
+  		<option value="web Dev3"> Web Dev3</option>
+  		<option value="web Dev4"> Web Dev4</option>
+  
+  </select>
+
+  <br><br>
+
+  Gender: <input type="radio" name="radio" value="Male" id="mygender">Male
+  <input type="radio" name="radio" value="Female" id="mygender1" >Female
+  <input type="radio" name="radio" value="other" id="mygender2" >Other
+
+  <br><br>
+
+  Are you ready to Relocate: <input type="checkbox" name="check" value="yes" id="myrelocate">Yes
+  <input type="checkbox" name="check" value="no" id="myrelocate1">No
+
+  <br><br>
+
+  Select your language:<input type="checkbox" name="check" value="mycheck" id="mylanguage">Marathi 
+  <input type="checkbox" name="check" value="mycheck" id="mylanguage1">Hindi 
+  <input type="checkbox" name="check" value="mycheck" id="mylanguage2">English 
+  <input type="checkbox" name="check" value="mycheck" id="mylanguage3">Kanada
+  <input type="checkbox" name="check" value="mycheck" id="mylanguage4">Telagu 
+
+  <br><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
